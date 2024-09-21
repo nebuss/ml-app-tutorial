@@ -2,3 +2,4 @@ torch
 opencv-python
 mlflow
 ultralytics
+streamlit
