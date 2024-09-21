@@ -1,17 +1,27 @@
 # Deep Learning App Tutorial
 이 레포지토리는 딥러닝 모델 및 이를 활용한 어플리케이션 개발 과정을 단계별로 설명하는 튜토리얼을 제공합니다.
 
+## 설치 환경
+python version: 3.12
 
 ## 설치 방법
-1. python 3.12 설치
-2. 가상 환경 생성
-```
-python -m venv .venv
-```
-3. 필요 패키지 설치
-```
-python -m pip install -r requirements.txt
-```
+1. uv 설치: https://github.com/astral-sh/uv 참고
+1. python 3.12.3 설치
+    ```
+    uv python install 3.12.3
+    ```
+1. 가상 환경 생성
+    ```
+    uv venv --python 3.12.3
+    ```
+1. 가상 환경 실행
+    ```
+    source .venv/bin/activate
+    ```
+1. 필수 패키지 설치
+    ```
+    uv pip install -r requirements.txt
+    ```
 
 ## 실습 순서
 1. streamlit 배우기
