@@ -15,8 +15,8 @@ python -m pip install -r requirements.txt
 
 ## 실습 순서
 1. streamlit 배우기
-1. yolov5를 맛보기
 1. 객체탐지모델을 활용한 음식점 리뷰 서비스 고도화
+    1. yolov5 맛보기
     1. Streamlit app으로 서비스 프로토타입 만들기
     1. ML 모델 만들기(모델 학습 및 평가)
     1. 모델 성능 개선 - Mlflow 적용하기
