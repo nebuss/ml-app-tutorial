@@ -3,3 +3,8 @@
 ```
 python src/sample.py
 ```
+
+### streamlit app
+```
+streamlit run src/streamlit_app/main.py
+```
