@@ -8,3 +8,19 @@ python src/sample.py
 ```
 streamlit run src/streamlit_app/main.py
 ```
+
+### filter data
+주어진 데이터셋에서 필요한 데이터를 선택하고 필터링하여 저장합니다. 자세한 설명은 `python src/filter_data.py --help`를 참고하세요
+
+예시
+```
+python src/filter_data.py \
+    data/filtered_data \
+    --src-image-dir data/KoreanFOOD_Detecting/train/images \
+    --src-annot-dir data/KoreanFOOD_Detecting/train/labels \
+    --src-datayaml-dir data/KoreanFOOD_Detecting/data.yaml \
+    --data-type train \
+    --classes jjajangmyeon \
+    --classes Jjambbong \
+    --num-sample 100
+```

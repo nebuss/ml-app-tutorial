@@ -1,5 +1,3 @@
-"""주어진 데이터셋에서 필요한 데이터를 선택합니다."""
-
 import random
 import warnings
 from pathlib import Path
@@ -15,13 +13,56 @@ warnings.filterwarnings("ignore")
 
 def main(
     save_dir: Path,
-    src_image_dir: Path = "data/KoreanFOOD_Detecting/test/images",
-    src_annot_dir: Path = "data/KoreanFOOD_Detecting/test/labels",
+    src_image_dir: Path = "data/KoreanFOOD_Detecting/train/images",
+    src_annot_dir: Path = "data/KoreanFOOD_Detecting/train/labels",
     src_datayaml_dir: Path = "data/KoreanFOOD_Detecting/data.yaml",
-    data_type: str = "test",
+    data_type: str = "train",
     classes: List[str] = ["jjajangmyeon", "Jjambbong"],
-    num_sample: int = 30,
+    num_sample: int = 100,
 ):
+    """주어진 데이터셋에서 필요한 데이터를 선택하고 필터링하여 저장합니다.
+
+    이 함수는 YOLO 형식의 데이터셋에서 특정 클래스에 해당하는 데이터만 필터링하여
+    지정한 경로에 저장합니다. 저장된 데이터는 주어진 클래스에 해당하는 이미지와
+    라벨(annotation)만 포함합니다.
+
+    Args:
+        save_dir (Path): 필터링된 데이터를 저장할 경로입니다.
+        src_image_dir (Path, optional): 원본 이미지 파일이 있는 경로입니다.
+            기본값은 'data/KoreanFOOD_Detecting/train/images'입니다.
+        src_annot_dir (Path, optional): 원본 주석 파일이 있는 경로입니다.
+            기본값은 'data/KoreanFOOD_Detecting/train/labels'입니다.
+        src_datayaml_dir (Path, optional): 데이터셋의 설정 정보가 담긴 YAML 파일
+            경로입니다. 기본값은 'data/KoreanFOOD_Detecting/data.yaml'입니다.
+        data_type (str, optional): 저장할 데이터의 유형을 지정합니다.
+            'train', 'valid', 'test' 중 하나여야 합니다. 기본값은 'train'입니다.
+        classes (List[str], optional): 필터링할 클래스 목록입니다. 기본값은
+            ['jjajangmyeon', 'Jjambbong']입니다.
+        num_sample (int, optional): 필터링된 데이터에서 추출할 샘플의 개수입니다.
+            기본값은 100입니다.
+
+    Raises:
+        ValueError: 잘못된 클래스가 입력되었거나, 이미 경로가 존재하는 경우, 또는
+            잘못된 data_type 값이 전달될 경우 발생합니다.
+
+    Example:
+        기본 사용법:
+
+        ```sh
+        python3 src/filter_data.py \
+            data/filtered_data \
+            --src-image-dir data/KoreanFOOD_Detecting/train/images \
+            --src-annot-dir data/KoreanFOOD_Detecting/train/labels \
+            --src-datayaml-dir data/KoreanFOOD_Detecting/data.yaml \
+            --data-type train \
+            --classes jjajangmyeon \
+            --classes Jjambbong \
+            --num-sample 100
+        ```
+
+        위 예시는 'jjajangmyeon'과 'Jjambbong' 클래스에 해당하는 100개의 이미지를
+        필터링하여 'filtered_data/train' 경로에 저장합니다.
+    """
     # 원본 데이터 불러오기
     ds = sv.DetectionDataset.from_yolo(
         images_directory_path=src_image_dir,
