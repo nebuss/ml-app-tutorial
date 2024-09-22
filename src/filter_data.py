@@ -13,27 +13,22 @@ warnings.filterwarnings("ignore")
 
 def main(
     save_dir: Path,
-    src_image_dir: Path = "data/KoreanFOOD_Detecting/train/images",
-    src_annot_dir: Path = "data/KoreanFOOD_Detecting/train/labels",
-    src_datayaml_dir: Path = "data/KoreanFOOD_Detecting/data.yaml",
+    src_dir: Path = Path("data/KoreanFOOD_Detecting"),
     data_type: str = "train",
     classes: List[str] = ["jjajangmyeon", "Jjambbong"],
     num_sample: int = 100,
 ):
     """주어진 데이터셋에서 필요한 데이터를 선택하고 필터링하여 저장합니다.
 
-    이 함수는 YOLO 형식의 데이터셋에서 특정 클래스에 해당하는 데이터만 필터링하여
+    이 함수는 YOLOv5 형식의 데이터셋에서 특정 클래스에 해당하는 데이터만 필터링하여
     지정한 경로에 저장합니다. 저장된 데이터는 주어진 클래스에 해당하는 이미지와
     라벨(annotation)만 포함합니다.
 
     Args:
         save_dir (Path): 필터링된 데이터를 저장할 경로입니다.
-        src_image_dir (Path, optional): 원본 이미지 파일이 있는 경로입니다.
-            기본값은 'data/KoreanFOOD_Detecting/train/images'입니다.
-        src_annot_dir (Path, optional): 원본 주석 파일이 있는 경로입니다.
-            기본값은 'data/KoreanFOOD_Detecting/train/labels'입니다.
-        src_datayaml_dir (Path, optional): 데이터셋의 설정 정보가 담긴 YAML 파일
-            경로입니다. 기본값은 'data/KoreanFOOD_Detecting/data.yaml'입니다.
+        src_dir (Path, optional): 원본 데이터가 저장되어 있는 경로입니다.
+            이 디렉토리 하위 경로에는 data.yaml, test/ train/ valid/ 가 포함되어야 합니다.
+            기본값은 'data/KoreanFOOD_Detecting'입니다.
         data_type (str, optional): 저장할 데이터의 유형을 지정합니다.
             'train', 'valid', 'test' 중 하나여야 합니다. 기본값은 'train'입니다.
         classes (List[str], optional): 필터링할 클래스 목록입니다. 기본값은
@@ -49,11 +44,9 @@ def main(
         기본 사용법:
 
         ```sh
-        python3 src/filter_data.py \
+        python src/filter_data.py \
             data/filtered_data \
-            --src-image-dir data/KoreanFOOD_Detecting/train/images \
-            --src-annot-dir data/KoreanFOOD_Detecting/train/labels \
-            --src-datayaml-dir data/KoreanFOOD_Detecting/data.yaml \
+            --src-dir data/KoreanFOOD_Detecting \
             --data-type train \
             --classes jjajangmyeon \
             --classes Jjambbong \
@@ -65,9 +58,9 @@ def main(
     """
     # 원본 데이터 불러오기
     ds = sv.DetectionDataset.from_yolo(
-        images_directory_path=src_image_dir,
-        annotations_directory_path=src_annot_dir,
-        data_yaml_path=src_datayaml_dir,
+        images_directory_path=src_dir / data_type / "images",
+        annotations_directory_path=src_dir / data_type / "labels",
+        data_yaml_path=src_dir / "data.yaml",
     )
 
     # classes 명 확인

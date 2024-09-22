@@ -16,9 +16,7 @@ streamlit run src/streamlit_app/main.py
 ```
 python src/filter_data.py \
     data/filtered_data \
-    --src-image-dir data/KoreanFOOD_Detecting/train/images \
-    --src-annot-dir data/KoreanFOOD_Detecting/train/labels \
-    --src-datayaml-dir data/KoreanFOOD_Detecting/data.yaml \
+    --src-dir data/KoreanFOOD_Detecting \
     --data-type train \
     --classes jjajangmyeon \
     --classes Jjambbong \
