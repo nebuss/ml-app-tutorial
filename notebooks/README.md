@@ -45,3 +45,10 @@ python notebooks/yolov5.py
 
 1. 모델 학습 결과 확인
     - `yolov5/runs/exp*` 경로에서 학습 결과를 확인할 수 있습니다.
+
+1. 학습된 모델을 활용하여 예측하기
+    ```
+    python src/inference.py \
+        yolov5/runs/train/exp13/weights/best.pt \
+        data/filtered_data200/test/images/02_021_02011027_160655908976565_0_jpeg.rf.1468ccfe1571b554f3aeee8fd4914f89.jpg
+    ```
