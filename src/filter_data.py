@@ -16,11 +16,11 @@ def main(
     src_dir: Path = Path("data/KoreanFOOD_Detecting"),
     data_type: str = "train",
     classes: List[str] = ["jjajangmyeon", "Jjambbong"],
-    num_sample: int = 100,
+    num_sample: int = None,
 ):
     """주어진 데이터셋에서 필요한 데이터를 선택하고 필터링하여 저장합니다.
 
-    이 함수는 YOLOv5 형식의 데이터셋에서 특정 클래스에 해당하는 데이터만 필터링하여
+    이 함수는 YOLO 형식의 데이터셋에서 특정 클래스에 해당하는 데이터만 필터링하여
     지정한 경로에 저장합니다. 저장된 데이터는 주어진 클래스에 해당하는 이미지와
     라벨(annotation)만 포함합니다.
 
@@ -57,9 +57,10 @@ def main(
         필터링하여 'filtered_data/train' 경로에 저장합니다.
     """
     # 원본 데이터 불러오기
-    ds = sv.DetectionDataset.from_coco(
-        images_directory_path=src_dir / data_type,
-        annotations_path=src_dir / data_type / "_annotations.coco.json",
+    ds = sv.DetectionDataset.from_yolo(
+        images_directory_path=src_dir / data_type / "images",
+        annotations_directory_path=src_dir / data_type / "labels",
+        data_yaml_path=src_dir / "data.yaml",
     )
 
     # classes 명 확인
@@ -103,9 +104,10 @@ def main(
         annotations=annot_filtered,
     )
 
-    ds_filtered.as_coco(
-        images_directory_path=save_dir / data_type,
-        annotations_path=save_dir / data_type / "_annotations.coco.json",
+    ds_filtered.as_yolo(
+        images_directory_path=save_dir / data_type / "images",
+        annotations_directory_path=save_dir / data_type / "labels",
+        data_yaml_path=save_dir / "data.yaml",
     )
 
 

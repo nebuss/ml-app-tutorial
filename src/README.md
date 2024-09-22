@@ -15,10 +15,10 @@ streamlit run src/streamlit_app/main.py
 예시
 ```
 python src/filter_data.py \
-    data/filtered_data \
+    data/filtered_data200 \
     --src-dir data/KoreanFOOD_Detecting \
     --data-type train \
     --classes jjajangmyeon \
     --classes Jjambbong \
-    --num-sample 100
+    --num-sample 200
 ```
