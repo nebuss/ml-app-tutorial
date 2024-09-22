@@ -57,10 +57,9 @@ def main(
         필터링하여 'filtered_data/train' 경로에 저장합니다.
     """
     # 원본 데이터 불러오기
-    ds = sv.DetectionDataset.from_yolo(
-        images_directory_path=src_dir / data_type / "images",
-        annotations_directory_path=src_dir / data_type / "labels",
-        data_yaml_path=src_dir / "data.yaml",
+    ds = sv.DetectionDataset.from_coco(
+        images_directory_path=src_dir / data_type,
+        annotations_path=src_dir / data_type / "_annotations.coco.json",
     )
 
     # classes 명 확인
@@ -104,10 +103,9 @@ def main(
         annotations=annot_filtered,
     )
 
-    ds_filtered.as_yolo(
-        images_directory_path=save_dir / data_type / "images",
-        annotations_directory_path=save_dir / data_type / "labels",
-        data_yaml_path=save_dir / "data.yaml",
+    ds_filtered.as_coco(
+        images_directory_path=save_dir / data_type,
+        annotations_path=save_dir / data_type / "_annotations.coco.json",
     )
 
 
