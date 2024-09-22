@@ -23,11 +23,9 @@ python version: 3.12
     ```
     uv pip install -r requirements.txt
     ```
-1. utralytics/yolov5 소스코드 및 관련 패키지 설치
+1. utralytics/yolov5 관련 패키지 설치
     ```
-    git clone https://github.com/ultralytics/yolov5
-    cd yolov5
-    uv pip install -r requirements.txt  # install
+    uv pip install -r yolov5/requirements.txt
     ```
 
 ## 실습 순서
