@@ -3,3 +3,10 @@ opencv-python
 mlflow
 ultralytics
 streamlit
+supervision
+mlflow
+matplotlib-inline
+ipykernel
+typer
+python-dotenv
+Pillow
