@@ -1,6 +1,5 @@
 # Deep Learning App Tutorial
 이 레포지토리는 딥러닝 모델 및 이를 활용한 어플리케이션 개발 과정을 단계별로 설명하는 튜토리얼을 제공합니다.
-레포지토리 내의 `yolov5/` 경로에 포함된 파일은 [https://github.com/ultralytics/yolov5](https://github.com/ultralytics/yolov5) 에서 복제되었습니다.
 
 ## 설치 환경
 python version: 3.12
@@ -23,10 +22,6 @@ python version: 3.12
     ```
     uv pip install -r requirements.txt
     ```
-1. utralytics/yolov5 관련 패키지 설치
-    ```
-    uv pip install -r yolov5/requirements.txt
-    ```
 
 ## 실습 순서
 0. 환경 설정 및 확인
@@ -36,5 +31,4 @@ python version: 3.12
     1. Streamlit app으로 서비스 프로토타입 만들기
     1. ML 모델 만들기(모델 학습 및 평가)
     1. 모델 성능 개선 - Mlflow 적용하기
-    1. 모델 성능 비교 App 만들기
-    1. 추가 음식에 대한 학습,배포 자동화하기
+    1. Streamlit app 개선하기
