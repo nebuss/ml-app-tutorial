@@ -9,3 +9,4 @@ matplotlib-inline
 ipykernel
 typer
 python-dotenv
+Pillow
