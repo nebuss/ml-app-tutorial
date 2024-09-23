@@ -23,7 +23,7 @@ python notebooks/yolov5.py
 1. `data.yaml` 수정
     아래의 예시를 참고하여 train, val, test 데이터의 경로를 입력합니다.
     ```
-    path: ../data/filtered_data # data.yaml 파일이 저장된 폴더 경로(yolov5 폴더로부터의 상대경로)
+    path: /Users/jeanboy/workspace/ml-app-tutorial/data/filtered_data # data.yaml 파일이 저장된 폴더 경로(절대 경로)
     train: train/images # 학습 이미지 경로 (path로 부터의 상대 경로)
     val: valid/images # 검증 이미지 경로 (path로 부터의 상대 경로)
     test: test/images # 테스트 이미지 경로 (path로 부터의 상대 경로)
