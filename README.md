@@ -22,6 +22,12 @@ python version: 3.12
     ```
     uv pip install -r requirements.txt
     ```
+1. 환경 변수 파일 생성(.env.example 파일을 복사하여 .env 파일로 저장 후 적절한 값을 입력)
+    ```
+    WORKING_DIRECTORY=/Users/jeanboy/workspace/ml-app-tutorial
+    PYTHONPATH=/Users/jeanboy/workspace/ml-app-tutorial
+    MLFLOW_URI=file:///Users/jeanboy/workspace/ml-app-tutorial/runs/mlflow
+    ```
 
 ## 실습 순서
 0. 환경 설정 및 확인
