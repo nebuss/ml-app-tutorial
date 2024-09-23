@@ -33,3 +33,14 @@ python notebooks/yolov5.py
 
     ```
 1. `train_model.ipynb` 노트북을 활용하여 모델 학습 수행
+
+
+### MLflow 실행
+실험 결과를 확인하기 위해 MLflow를 실행합니다.
+```
+mlflow server --backend-store-uri <.env 내의 MLFLOW_URI와 같은 경로(file:// 제외)> --port 5001
+```
+예시
+```
+mlflow server --backend-store-uri /Users/jeanboy/workspace/ml-app-tutorial/runs/mlflow --port 5001
+```
