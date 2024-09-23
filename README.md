@@ -23,10 +23,6 @@ python version: 3.12
     ```
     uv pip install -r requirements.txt
     ```
-1. utralytics/yolov5 관련 패키지 설치
-    ```
-    uv pip install -r yolov5/requirements.txt
-    ```
 
 ## 실습 순서
 0. 환경 설정 및 확인
@@ -36,5 +32,4 @@ python version: 3.12
     1. Streamlit app으로 서비스 프로토타입 만들기
     1. ML 모델 만들기(모델 학습 및 평가)
     1. 모델 성능 개선 - Mlflow 적용하기
-    1. 모델 성능 비교 App 만들기
     1. 추가 음식에 대한 학습,배포 자동화하기

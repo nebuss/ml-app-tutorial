@@ -2,7 +2,7 @@ import random
 import warnings
 from pathlib import Path
 from typing import List
-
+import shutil
 import numpy as np
 import supervision as sv
 import typer
@@ -17,6 +17,7 @@ def main(
     data_type: str = "train",
     classes: List[str] = ["jjajangmyeon", "Jjambbong"],
     num_sample: int = None,
+    num_bg_images: int = None,
 ):
     """주어진 데이터셋에서 필요한 데이터를 선택하고 필터링하여 저장합니다.
 
@@ -50,7 +51,8 @@ def main(
             --data-type train \
             --classes jjajangmyeon \
             --classes Jjambbong \
-            --num-sample 100
+            --num-sample 100 \
+            --num-bg-images
         ```
 
         위 예시는 'jjajangmyeon'과 'Jjambbong' 클래스에 해당하는 100개의 이미지를
@@ -109,6 +111,15 @@ def main(
         annotations_directory_path=save_dir / data_type / "labels",
         data_yaml_path=save_dir / "data.yaml",
     )
+
+    # 배경 이미지 추가 저장
+    if num_bg_images is not None:
+        image_paths = list(images_filtered.keys())
+        bg_image_paths = [path for path in ds.image_paths if path not in image_paths]
+        bg_image_paths = random.sample(bg_image_paths, num_bg_images)
+        for path in bg_image_paths:
+            final_path = save_dir / data_type / "images" / Path(path).name
+            shutil.copyfile(path, final_path)
 
 
 if __name__ == "__main__":
