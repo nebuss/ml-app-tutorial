@@ -6,10 +6,6 @@ import mlflow
 import torch
 import typer
 import ultralytics
-from dotenv import load_dotenv
-
-load_dotenv(dotenv_path="/Users/jeanboy/Downloads/ml-app-tutorial/.env")
-
 
 # pythonpath가 제대로 설정되었는지 확인
 from src.sample import sample_print
