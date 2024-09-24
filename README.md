@@ -5,6 +5,7 @@
 python version: 3.12
 
 ## 설치 방법
+### uv 활용 
 1. uv 설치: https://github.com/astral-sh/uv 참고
     ```
     python -m pip install uv
@@ -31,6 +32,18 @@ python version: 3.12
     ```
     pip install -r requirements.txt
     ```
+
+### conda 활용
+1. 가상 환경 생성
+    ```
+    conda create -n ml-app python=3.12.3
+    ```
+1. 필수 패키지 설치
+    ```
+    pip install -r requirements.txt
+    ```
+
+### 환경 변수 생성
 1. 환경 변수 파일 생성(.env.example 파일을 복사하여 .env 파일로 저장 후 적절한 값을 입력)
     ```
     WORKING_DIRECTORY=/Users/jeanboy/workspace/ml-app-tutorial
