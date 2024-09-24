@@ -6,21 +6,30 @@ python version: 3.12
 
 ## 설치 방법
 1. uv 설치: https://github.com/astral-sh/uv 참고
+    ```
+    python -m pip install uv
+    ```
 1. python 3.12.3 설치
     ```
-    uv python install 3.12.3
+    python -m uv python install 3.12.3
     ```
 1. 가상 환경 생성
     ```
-    uv venv --python 3.12.3
+    python -m uv venv --python 3.12.3
     ```
+    
 1. 가상 환경 실행
+    - mac / linux
     ```
     source .venv/bin/activate
     ```
+    - windows
+    ```
+     .\.venv\Scripts\activate
+    ```
 1. 필수 패키지 설치
     ```
-    uv pip install -r requirements.txt
+    pip install -r requirements.txt
     ```
 1. 환경 변수 파일 생성(.env.example 파일을 복사하여 .env 파일로 저장 후 적절한 값을 입력)
     ```
