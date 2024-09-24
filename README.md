@@ -29,8 +29,7 @@ python version: 3.12
     ```
 1. 필수 패키지 설치
     ```
-    python -m pip install uv
-    uv pip install -r requirements.txt
+    pip install -r requirements.txt
     ```
 1. 환경 변수 파일 생성(.env.example 파일을 복사하여 .env 파일로 저장 후 적절한 값을 입력)
     ```
