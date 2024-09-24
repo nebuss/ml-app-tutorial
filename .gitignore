@@ -155,7 +155,7 @@ dmypy.json
 cython_debug/
 
 # vscode conifg
-.vscode
+# .vscode
 
 # yolov5 runs
 runs/*
